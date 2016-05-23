@@ -1,6 +1,7 @@
 package String;
 
 /**
+ * Implement an algorithm to determine if a string has all unique characters.
  * Created by jp on 5/23/16.
  */
 public class UniqueChars {
