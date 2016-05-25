@@ -2,7 +2,7 @@ package String;
 
 /**
  * Write a method to replace all spaces in a string with ‘%20’.
- *
+ *  check string buffer solution as well: https://gist.github.com/cclxz/2575945
  * Created by jp on 5/25/16.
  */
 public class ReplaceSpaces {
