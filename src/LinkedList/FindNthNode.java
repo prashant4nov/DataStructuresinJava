@@ -29,12 +29,11 @@ public class FindNthNode {
     public static void main(String[] args) {
         Node list = new Node(1);
         list.next = new Node(2);
-        list.next = new Node(3);
-        list.next.next = new Node(4);
-        list.next.next.next = new Node(5);
-        list.next.next.next.next = new Node(6);
-        list.next.next.next.next.next = new Node(7);
-        list.next.next.next.next.next.next = new Node(8);
+        list.next.next = new Node(3);
+        list.next.next.next = new Node(4);
+        list.next.next.next.next = new Node(5);
+        list.next.next.next.next.next = new Node(6);
+        list.next.next.next.next.next.next = new Node(7);
         int pos = 4;
         Node res = findNthNode(list, pos);
         if(res != null) {
