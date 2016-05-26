@@ -40,7 +40,6 @@ public class RemoveDuplicatesII {
     public static void main(String[] args) {
         RemoveDuplicatesII list = new RemoveDuplicatesII();
         list.head = new Node(1);
-        list.head.next = new Node(10);
         list.head.next = new Node(12);
         list.head.next.next = new Node(11);
         list.head.next.next.next = new Node(11);
