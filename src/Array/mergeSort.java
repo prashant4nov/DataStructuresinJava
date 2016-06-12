@@ -34,7 +34,6 @@ public class mergeSort {
             tmp[k++] = a[j++];
         }
 
-        k = l;
         for(i=0;i<tmp.length;i++) {
             a[l++] = tmp[i];
         }
