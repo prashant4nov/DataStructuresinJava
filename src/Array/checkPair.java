@@ -1,7 +1,5 @@
 package Array;
 
-import java.util.HashMap;
-import java.util.Set;
 import java.util.HashSet;
 
 /**
@@ -9,7 +7,7 @@ import java.util.HashSet;
  */
 public class CheckPair {
     static boolean checkPair(int[] a, int x) {
-        Set set = new HashSet();
+        HashSet<Integer> set = new HashSet<Integer>();
         for(int i=0;i<a.length;i++) {
             int tmp = x-a[i];
             if(set.contains(tmp)) {
