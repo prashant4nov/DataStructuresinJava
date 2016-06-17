@@ -2,6 +2,7 @@ package Array;
 
 /**
  * Created by Prashant on 5/30/16.
+ * Search an element in a sorted and rotated array
  */
 public class SearchSortedPivoted {
     static int search(int[] a, int x, int l, int r) {
