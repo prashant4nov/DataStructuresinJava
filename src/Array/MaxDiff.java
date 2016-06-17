@@ -2,6 +2,8 @@ package Array;
 
 /**
  * Created by Prashant on 6/12/16.
+ * Given an array arr[] of integers, find out the difference between any two elements 
+ * such that larger element appears after the smaller number in arr[].
  */
 public class MaxDiff {
     public static int maxDiff(int[] a) {
