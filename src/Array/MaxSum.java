@@ -2,6 +2,7 @@ package Array;
 
 /**
  * Created by Prashant on 5/30/16.
+ * Maximum sum such that no two elements are adjacent
  */
 public class MaxSum {
     static int maxSum(int[] a) {
