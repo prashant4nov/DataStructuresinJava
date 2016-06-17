@@ -2,6 +2,8 @@ package Array;
 
 /**
  * Created by Prashant on 5/30/16.
+ * Write a program to print all the LEADERS in the array. 
+ * An element is leader if it is greater than all the elements to its right side.
  */
 public class Leaders {
     static void leaders(int[] a) {
