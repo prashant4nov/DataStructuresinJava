@@ -2,6 +2,8 @@ package Array;
 
 /**
  * Created by Prashant on 6/12/16.
+ * An Array of integers is given, both +ve and -ve. 
+ * You need to find the two elements such that their sum is closest to zero.
  */
 public class SumZero {
     public static void sumZero(int a[]) {
