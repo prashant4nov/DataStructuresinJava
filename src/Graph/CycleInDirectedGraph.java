@@ -7,15 +7,18 @@ import java.util.ListIterator;
  * Created by Prashant on 6/24/16.
  * http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
  */
-public class CycleInDirectedGraph {
-    public  Graph graph;
+public class CycleInDirectedGraph extends Graph{
     public enum COLORS {
         WHITE, GRAY, BLACK
     }
 
+    CycleInDirectedGraph(int v) {
+        super(4);
+    }
+
     public  boolean DFSUTIL(int u, COLORS[] color) {
         color[u] = COLORS.GRAY;
-        ListIterator<Integer> i = graph.adj[u].listIterator();
+        ListIterator<Integer> i = adj[u].listIterator();
         while(i.hasNext()) {
             int n = i.next();
 
@@ -33,15 +36,14 @@ public class CycleInDirectedGraph {
         return false;
     }
 
-    public boolean isCyclic(Graph g) {
-        graph = g;
-        COLORS[] color = new COLORS[graph.V];
+    public boolean isCyclic() {
+        COLORS[] color = new COLORS[V];
 
-        for(int i=0;i<graph.V;i++) {
+        for(int i=0;i<V;i++) {
             color[i] = COLORS.WHITE;
         }
 
-        for(int i=0;i<graph.V;i++) {
+        for(int i=0;i<V;i++) {
             if(color[i] == COLORS.WHITE) {
                 return DFSUTIL(i, color);
             }
@@ -50,15 +52,14 @@ public class CycleInDirectedGraph {
     }
 
     public static void main(String[] args) {
-        Graph g = new Graph(4);
+        CycleInDirectedGraph g = new CycleInDirectedGraph(4);
         g.addEdge(0, 1);
         g.addEdge(0, 2);
         g.addEdge(1, 2);
         g.addEdge(2, 0);
         g.addEdge(2, 3);
         g.addEdge(3, 3);
-        CycleInDirectedGraph c = new CycleInDirectedGraph();
-        boolean res = c.isCyclic(g);
+        boolean res = g.isCyclic();
         System.out.print(res + " ");
     }
 }
