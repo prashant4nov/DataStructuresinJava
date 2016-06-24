@@ -3,6 +3,11 @@ package LinkedList;
 /**
  * Write a function that adds the two numbers and returns the sum as a linked list.
  * Created by jp on 5/26/16.
+ * Input:
+  First List: 5->6->3  // represents number 365
+  Second List: 8->4->2 //  represents number 248
+Output
+  Resultant list: 3->1->6  // represents number 613
  */
 public class AddNumbers {
     private static Node addNumbers(Node l1, Node l2, int carry) {
