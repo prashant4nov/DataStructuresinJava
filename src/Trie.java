@@ -4,6 +4,16 @@ import java.util.Map;
 /**
  * Created by Prashant on 6/25/16.
  */
+class TrieNode {
+    Map<Character, TrieNode> children;
+    boolean endOfWord;
+
+    TrieNode() {
+        children = new HashMap<>();
+        endOfWord = false;
+    }
+}
+
 public class Trie {
     private TrieNode root;
 
@@ -80,15 +90,5 @@ public class Trie {
 
     public static void main(String[] args) {
         System.out.print(" ");
-    }
-}
-
-class TrieNode {
-    Map<Character, TrieNode> children;
-    boolean endOfWord;
-
-    TrieNode() {
-        children = new HashMap<>();
-        endOfWord = false;
     }
 }
