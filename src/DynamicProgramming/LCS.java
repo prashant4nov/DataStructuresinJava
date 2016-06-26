@@ -3,6 +3,7 @@ package DynamicProgramming;
 /**
  * Created by Prashant on 6/25/16.
  * http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
+ * O(mn) complexity
  */
 public class LCS {
     public int lcs(char[] a, char[] b) {
