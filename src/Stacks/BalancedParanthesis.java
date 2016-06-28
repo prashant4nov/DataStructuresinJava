@@ -32,6 +32,7 @@ public class BalancedParanthesis {
             if(isOpeningBracket(c)) {
                 stack.push(c);
             } else {
+                // if no opening bracket for the closing bracket return false.
                 if(stack.isEmpty()) {
                     return false;
                 }

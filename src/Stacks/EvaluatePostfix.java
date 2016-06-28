@@ -3,6 +3,7 @@ package Stacks;
 import java.util.Stack;
 /**
  * Created by Prashant on 6/27/16.
+ * http://quiz.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/
  */
 public class EvaluatePostfix extends InfixToPostfix{
     public int calculateValue(int a, int b, char operator) {
