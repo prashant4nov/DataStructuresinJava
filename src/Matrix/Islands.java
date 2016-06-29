@@ -2,6 +2,7 @@ package Matrix;
 
 /**
  * Created by Prashant on 6/9/16.
+ * http://www.geeksforgeeks.org/count-number-islands-every-island-separated-line/
  */
 public class Islands {
     public static int islands(int[][] a) {
