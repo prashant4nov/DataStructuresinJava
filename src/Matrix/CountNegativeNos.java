@@ -2,6 +2,7 @@ package Matrix;
 
 /**
  * Created by Prashant on 6/11/16.
+ * http://www.geeksforgeeks.org/count-negative-numbers-in-a-column-wise-row-wise-sorted-matrix/
  */
 public class CountNegativeNos {
     public static int countNeg(int[][] a) {
