@@ -1,14 +1,16 @@
 package Matrix;
 
+import java.util.Map;
 import java.util.HashMap;
 
 /**
  * Created by Prashant on 6/11/16.
  * http://www.geeksforgeeks.org/find-common-element-rows-row-wise-sorted-matrix/
+ * http://stackoverflow.com/questions/9588959/difference-between-hashmap-and-map-in-java
  */
 public class commomElinRows {
     public static void commomElinRows(int[][] a) {
-        HashMap<Integer, Integer> mp = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> mp = new HashMap<Integer, Integer>();
         int rows = a.length;
         int cols = a[0].length;
         int r=0, c;
