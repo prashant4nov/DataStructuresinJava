@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by Prashant on 6/11/16.
+ * http://www.geeksforgeeks.org/find-common-element-rows-row-wise-sorted-matrix/
  */
 public class commomElinRows {
     public static void commomElinRows(int[][] a) {
