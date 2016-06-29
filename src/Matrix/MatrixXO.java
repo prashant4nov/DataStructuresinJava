@@ -2,6 +2,7 @@ package Matrix;
 
 /**
  * Created by Prashant on 6/9/16.
+ * http://www.geeksforgeeks.org/create-a-matrix-with-alternating-rectangles-of-0-and-x/
  */
 public class MatrixXO {
     public static int[][] matrixXO(int m, int n) {
