@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 /**
  * Created by Prashant on 6/9/16.
+ * http://www.geeksforgeeks.org/print-matrix-diagonally/
  */
 public class printDiagonally {
     public static void printMatrixDiagonally(int[][] a) {
