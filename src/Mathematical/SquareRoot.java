@@ -3,6 +3,7 @@ package Mathematical;
 /**
  * babylonian method for square root.
  * Created by jp on 5/27/16.
+ * complexity is O(log(log(n/e)))
  */
 public class SquareRoot {
     static int squareRoot(int n) {
