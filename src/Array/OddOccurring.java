@@ -2,6 +2,7 @@ package Array;
 
 /**
  * Created by Prashant on 5/30/16.
+ * http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/
  */
 public class OddOccurring {
     static int oddOccurring(int[] a) {
