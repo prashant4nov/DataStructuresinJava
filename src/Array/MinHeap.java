@@ -76,7 +76,7 @@ public class MinHeap {
             minIndex = leftChild;
         }
 
-        if(rightChild<index&&a[rightChild]<a[minIndex]) {
+        if(rightChild<size&&a[rightChild]<a[minIndex]) {
             minIndex = rightChild;
         }
 
