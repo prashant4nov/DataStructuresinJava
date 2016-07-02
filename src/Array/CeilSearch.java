@@ -6,11 +6,23 @@ package Array;
  */
 public class CeilSearch {
     public static int ceilSearchUtil(int[] a, int l, int r, int x) {
-
-
+        if(x<=a[l]) return a[l];
+        if(x>a[r]) return -1;
+        if(l<=r) {
+            int mid = (l+r)/2;
+            if(a[mid]==x) return a[mid];
+            if(a[mid]<x) {
+                if(a[mid+1]>=x && mid+1<=r) return a[mid+1];
+                return ceilSearchUtil(a, mid+1, r, x);
+            }
+            if(a[mid]>x){
+                if(mid-1>=l && a[mid-1]<x) return a[mid];
+                return ceilSearchUtil(a, l, mid-1, x);
+            }
+        }
         return -1;
-
     }
+
     public static int ceilSearch(int[] a, int x) {
         return ceilSearchUtil(a, 0, a.length-1, x);
     }
