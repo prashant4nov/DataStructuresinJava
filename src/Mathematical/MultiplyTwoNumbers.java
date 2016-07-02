@@ -3,6 +3,9 @@ package Mathematical;
 /**
  * Multiply two integers without using multiplication, division and bitwise operators, and no loops
  * Created by jp on 5/27/16.
+ * http://www.geeksforgeeks.org/multiply-two-numbers-without-using-multiply-division-bitwise-operators-and-no-loops/
+ * 
+ * this program doesn't handle case when value b=0.
  */
 public class MultiplyTwoNumbers {
     static int multiplyTwoNumbersUtil(int a, int b) {

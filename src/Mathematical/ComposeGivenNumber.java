@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 /**
  * Created by jp on 5/27/16.
+ * http://www.geeksforgeeks.org/print-all-combinations-of-points-that-can-compose-a-given-number/
  */
 public class ComposeGivenNumber {
     static ArrayList<Integer> arr = new ArrayList<Integer>();

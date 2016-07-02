@@ -2,6 +2,7 @@ package Mathematical;
 
 /**
  * http://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
+ * http://www.mathsisfun.com/definitions/composite-number.html
  * Created by Prashant on 5/30/16.
  */
 public class primeFactors {

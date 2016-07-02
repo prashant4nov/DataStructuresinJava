@@ -3,6 +3,7 @@ package Matrix;
 
 /**
  * Created by Prashant on 6/9/16.
+ * http://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/
  */
 public class replaceOswithXs {
     public static void replaceOs(int[][] a) {
