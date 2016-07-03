@@ -3,6 +3,7 @@ import java.util.Stack;
 
 /**
  * Created by Prashant on 6/12/16.
+ * http://www.geeksforgeeks.org/next-greater-element/
  */
 public class NGE {
     public static void nge(int[] a) {
