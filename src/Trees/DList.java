@@ -7,6 +7,7 @@ import java.util.Queue;
 /**
  * Create d list.
  * Created by jp on 5/26/16.
+ * http://algorithms.tutorialhorizon.com/in-a-binary-tree-create-linked-lists-of-all-the-nodes-at-each-depth/
  */
 public class DList {
     static ArrayList<LinkedList<Node>> dList(Node root) {
