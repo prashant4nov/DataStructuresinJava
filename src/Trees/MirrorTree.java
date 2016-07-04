@@ -2,6 +2,7 @@ package Trees;
 
 /**
  * Created by Prashant on 5/30/16.
+ * http://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
  */
 public class MirrorTree {
     static void mirror(Node root) {
