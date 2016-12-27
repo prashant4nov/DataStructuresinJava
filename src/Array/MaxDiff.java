@@ -4,6 +4,9 @@ package Array;
  * Created by Prashant on 6/12/16.
  * Given an array arr[] of integers, find out the difference between any two elements 
  * such that larger element appears after the smaller number in arr[].
+ * http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+ *
+ * follow up question: http://www.geeksforgeeks.org/given-an-array-arr-find-the-maximum-j-i-such-that-arrj-arri/
  */
 public class MaxDiff {
     public static int maxDiff(int[] a) {
