@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 /**  Priority Queue is Heap in Java.
  * Created by Prashant on 7/2/16.
  * http://www.geeksforgeeks.org/merge-k-sorted-arrays/
+ * also do: http://www.programcreek.com/2013/02/leetcode-merge-k-sorted-lists-java/
  */
 
 class ArrayContainer implements Comparable<ArrayContainer>{
