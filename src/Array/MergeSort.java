@@ -3,6 +3,8 @@ package Array;
 /**
  * Created by Prashant on 6/11/16.
  * merge sort is divide and conquer + combine approach. it's complexity is O(nlgn)
+ * java pass by value or reference? : https://www.youtube.com/watch?v=hNR6fsksEu8
+ * array pass by value or reference? : http://stackoverflow.com/questions/1610757/pass-array-to-method-java
  */
 public class mergeSort {
     public static void mergeSort(int[] a, int l, int r) {
