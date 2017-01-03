@@ -5,6 +5,11 @@ package DynamicProgramming;
  * http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
  * complexity: O(mn)
  */
+
+// TODO: 1. use String a and b 2. add check if a and b are null e.g. 
+// if(a==null&&b==null) return 0;
+// if(a==null) return b.length();
+// if(b==null) return a.length();
 public class EditDistance {
     public int editDistance(char[] a, char[] b) {
         int[][] edit = new int[a.length+1][b.length+1];
