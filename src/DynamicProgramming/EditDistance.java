@@ -10,8 +10,11 @@ package DynamicProgramming;
 // if(a==null&&b==null) return 0;
 // if(a==null) return b.length();
 // if(b==null) return a.length();
-// which one is for (m-1,n), (m,n-1) and (m-1,n-1)
+// 
+// TODO: which one is for (m-1,n), (m,n-1) and (m-1,n-1)
 
+// TODO: do recur code as well
+// TODO: do cutting rope question
 public class EditDistance {
     public int editDistance(char[] a, char[] b) {
         int[][] edit = new int[a.length+1][b.length+1];
