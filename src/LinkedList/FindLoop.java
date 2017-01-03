@@ -3,6 +3,7 @@ package LinkedList;
 /**
  * Given a circular linked list, implement an algorithm which returns node at the beginning of the loop.
  * Created by jp on 5/26/16.
+ * Also do the hashing method: http://www.geeksforgeeks.org/write-a-c-function-to-detect-loop-in-a-linked-list/
  */
 public class FindLoop {
     private static Node findLoop(Node head) {
