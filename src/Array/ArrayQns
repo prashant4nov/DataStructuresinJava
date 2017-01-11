@@ -8,3 +8,29 @@ http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
 ?Find the Minimum length Unsorted Subarray, sorting which makes the complete array sorted
 http://www.geeksforgeeks.org/minimum-length-unsorted-subarray-sorting-which-makes-the-complete-array-sorted/
 
+Bloom
+#Given a dictionary of words and a word return the word from the dict. with maximum matches with the word. 
+You can pre-process the dictionary.
+
+# abcac input find the first occurance character. optimise it by using 1 byte (short) instead on integer [remember signed/unsigned interger and size]
+
+# Design the resturant
+
+# find the maximum length string in a string ... something close to anagram
+
+ama
+# o/p the intergers with a given sum in an array (all pairs)
+
+# rotate a matrix 90
+
+# design netflix: (system design)
+
+# design pattern (make classes for tic tac toe game)
+
+# k-1 parition tree
+
+# print top view of tree
+
+# implement hashmap
+
+
