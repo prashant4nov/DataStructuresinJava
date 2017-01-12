@@ -18,6 +18,15 @@ You can pre-process the dictionary.
 
 # find the maximum length string in a string ... something close to anagram
 
+# matrix: 
+
+no. of islands
+
+and 
+
+given matrix 0 1 find the area of the matrix with 1s
+
+
 ama
 # o/p the intergers with a given sum in an array (all pairs)
 
@@ -32,5 +41,8 @@ ama
 # print top view of tree
 
 # implement hashmap
+
+# check for parenthesis ((())) w/o using stack balanced or not
+
 
 
