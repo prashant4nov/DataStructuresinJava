@@ -39,12 +39,12 @@ class RobinKarp {
               }
             }
         }
-        return "pattern not found!";
+        return "Pattern not found!";
     }
 
 	public static void main (String[] args) {
 		//code
-		GFG o1 = new GFG();
+		RobinKarp o1 = new RobinKarp();
 		System.out.println(o1.search("GEEKS FOR GEEKS", "GEEK"));
 	}
 }
