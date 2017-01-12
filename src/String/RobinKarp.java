@@ -1,8 +1,8 @@
 import java.io.*;
 
 class RobinKarp {
-    private int q = 121;
     public String search(String txt, String pat) {
+        int q = 121;
         int n = txt.length();
         int m = pat.length();
         int p = 0; // hash value for the pattern
