@@ -2,11 +2,12 @@ package String;
 
 /**
  * Created by Prashant on 7/1/16.
+ * http://stackoverflow.com/questions/9723912/reversing-a-string-with-recursion-in-java
  */
 public class ReverseStringRecursion {
     public String revString(String s) {
         if(s.length()==0) return s;
-        return s.substring(1) + s.charAt(0);
+        return revString(s.substring(1)) + s.charAt(0);
     }
 
     public String reverseString(char[] s, int start, int end) {
