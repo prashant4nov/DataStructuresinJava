@@ -1,5 +1,7 @@
 import java.io.*;
 
+// http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
+
 class RobinKarp {
     public String search(String txt, String pat) {
         int q = 121;
