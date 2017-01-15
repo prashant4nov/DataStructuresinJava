@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-public class Practice {
+public class ReplaceAllSpaces {
     public static void main(String args[]) {
         StringBuilder str = new StringBuilder("g eeks for ge eeks ");
         functionName(str);
