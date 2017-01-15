@@ -4,6 +4,8 @@ package String;
  *
  * Design an algorithm and write code to remove the duplicate characters in a string.
  * Created by jp on 5/23/16.
+ * using Set: http://code.geeksforgeeks.org/Jdkm8m
+ * http://www.geeksforgeeks.org/remove-all-duplicates-from-the-input-string/
  */
 public class RemoveDuplicateChars {
     private static String removeDuplicates(String str) {
