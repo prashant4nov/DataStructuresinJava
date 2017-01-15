@@ -6,8 +6,14 @@ package String;
  */
 public class IsRotation {
     public boolean isRotation(String a, String b) {
-        if(a.length()==b.length()&& (a+b).indexOf(b)!=-1) return true;
-        return false;
+        if(a==null&&b==null) return true;
+        if(a==null||b==null) return false;
+        int m = a.length();
+        int n = b.length();
+        if(m!=n) return false;
+        String x = a+b;
+        if(x.indexOf(b)==-1) return false;
+        return true;
     }
     public static void main(String[] args) {
         IsRotation ir = new IsRotation();
