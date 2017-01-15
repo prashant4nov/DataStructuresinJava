@@ -7,6 +7,21 @@ package String;
  * TODO: http://articles.leetcode.com/microsoft-string-replacement-problem/
  */
 public class ReplaceSpaces {
+    
+   private static String ReplaceSpaces(String str) {
+        if(str==null) return str;
+        StringBuilder s = new StringBuilder();
+        for(int i=0; i<str.length(); i++) {
+            if(str.charAt(i)==' ') {
+                s.append("%20");
+            } else {
+                s.append(str.charAt(i));
+            }
+        }
+
+        return s.toString();
+    }
+    
     private static String ReplaceSpaces(String str) {
         char[] s = str.toCharArray();
         int len = s.length;
