@@ -4,7 +4,7 @@ import java.io.*;
 
 class RobinKarp {
     public String search(String txt, String pat) {
-        int q = 121;
+        int q = 31;
         int n = txt.length();
         int m = pat.length();
         int p = 0; // hash value for the pattern
