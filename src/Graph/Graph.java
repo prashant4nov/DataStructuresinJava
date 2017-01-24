@@ -21,6 +21,28 @@ public class Graph {
         adj[u].add(v);
     }
 
+        public void BFS(int s) {
+        
+        boolean visited[] = new boolean[V];
+
+        
+        LinkedList<Integer> q = new LinkedList<>();
+        
+        visited[s] = true;
+        q.add(s);
+        
+        while(!q.isEmpty()) {
+             int node = q.poll();
+             System.out.println(node + "");
+             for(int i=0; i<adj[node].size(); i++) {
+               if(visited[adj[node].get(i)]==false) {
+            	   visited[adj[node].get(i)] = true;
+                q.add(adj[node].get(i));
+               }
+             }
+        }
+      }
+    
     public void BFS(int s) {
         boolean[] visited = new boolean[V];
         LinkedList<Integer> queue = new LinkedList<Integer>();
