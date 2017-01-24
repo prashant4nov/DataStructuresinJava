@@ -64,6 +64,16 @@ public class Graph {
         }
     }
 
+    public void DFSUTIL(int n, boolean[] visited) {
+		visited[n] = true;
+		System.out.println(n);
+		for (int i = 0; i < adj[n].size(); i++) {
+			if (visited[adj[n].get(i)] == false) {
+				DFSUTIL(adj[n].get(i), visited);
+			}
+		}
+	}
+    
     public void DFSUTIL(int s, boolean[] visited) {
         System.out.print(s+" ");
         visited[s] = true;
