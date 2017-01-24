@@ -1,5 +1,5 @@
 package Graph;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.ListIterator;
 
 /**
@@ -26,7 +26,7 @@ public class Graph {
         boolean visited[] = new boolean[V];
 
         
-        LinkedList<Integer> q = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         
         visited[s] = true;
         q.add(s);
