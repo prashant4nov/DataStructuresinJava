@@ -93,6 +93,24 @@ public class Graph {
         DFSUTIL(s, visited);
     }
 
+     public void DFSIterative(int n) {
+		Stack<Integer> s = new Stack();
+		boolean[] visited = new boolean[V];
+		s.push(n);
+		while (!s.isEmpty()) {
+			n = s.pop();
+			if (visited[n] == false) {
+				System.out.println(n);
+				visited[n] = true;
+			}
+			for (int i = 0; i < adj[n].size(); i++) {
+				if (visited[adj[n].get(i)] == false) {
+					s.push(adj[n].get(i));
+				}
+			}
+		}
+	}
+	
     public static void main(String[] args) {
         Graph g = new Graph(4);
 
@@ -112,5 +130,15 @@ public class Graph {
         System.out.println("Following is Dept First Traversal "+
                 "(starting from vertex 2)");
         g.DFS(2);
+	    
+	    
+		  Graph g1 = new Graph(5); // Total 5 vertices in graph
+		    g1.addEdge(1, 0);
+		    g1.addEdge(0, 2);
+		    g1.addEdge(2, 1);
+		    g1.addEdge(0, 3);
+		    g1.addEdge(1, 4);
+		System.out.println("Following is Dept First Traversal " + "(starting from vertex 2) iterative");
+		g1.DFSIterative(0);
     }
 }
