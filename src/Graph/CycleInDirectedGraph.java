@@ -6,6 +6,7 @@ import java.util.ListIterator;
 /**
  * Created by Prashant on 6/24/16.
  * http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
+ * http://quiz.geeksforgeeks.org/connected-components-in-an-undirected-graph/
  */
 public class CycleInDirectedGraph extends Graph{
     public enum COLORS {
