@@ -3,6 +3,7 @@ package Trees;
 /** LCA
  * Created by jp on 5/26/16.
  * http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+ * http://code.geeksforgeeks.org/oUwxmC when nodes are not present
  */
 public class LCA {
     static Node lca(Node root, Node a, Node b) {
