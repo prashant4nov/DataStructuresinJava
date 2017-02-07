@@ -1,22 +1,25 @@
-package Mathematical;
+import java.io.*;
 
-/**
- * babylonian method for square root.
- * Created by jp on 5/27/16.
- * complexity is O(log(log(n/e)))
- */
-public class SquareRoot {
-    static int squareRoot(int n) {
-        int x = n;
-        int y = 1;
-        double e = 0.000001;
-        while(x-y>e) {
-            x = (x+y)/2;
-            y=n/x;
+class FloorSqrt {
+    public static int floorSqrt(int x) {
+        if(x == 0 || x == 1) return x;
+        int start = 0, end = x/2, ans = 0;
+        while(start <= end) {
+            int mid = (start + end) / 2;
+            if(mid*mid == x) return mid;
+            if(mid*mid < x) {
+                start = mid + 1;
+                ans = mid;
+            } else {
+                end = mid - 1;
+            }
+
         }
-        return x;
+        return ans;
     }
-    public static void main(String[] args) {
-        System.out.print(squareRoot(16));
-    }
+	public static void main (String[] args) {
+	            int x = 11;
+        System.out.println(floorSqrt(x));
+		//code
+	}
 }
