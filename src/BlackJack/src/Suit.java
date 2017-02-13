@@ -6,5 +6,10 @@
  */
 		
 public enum Suit {
-  Clubs, Diamonds, Spades, Hearts,
+  Clubs(1), Diamonds(2), Spades(3), Hearts(4);
+  private int value;
+  
+  private Suit(int v) {
+	  this.value = v;
+  }
 }
