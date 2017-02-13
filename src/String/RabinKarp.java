@@ -1,7 +1,7 @@
 import java.io.*;
 
 class RabinKarp {
-    private int q = 121;
+    private int q = 31;
     public String search(String txt, String pat) {
         int n = txt.length();
         int m = pat.length();
