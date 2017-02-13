@@ -1,4 +1,6 @@
 // A Java program to print all subsets of a set
+// power set of a string: http://javabypatel.blogspot.in/2015/10/all-subsets-of-set-powerset.html
+
 import java.io.IOException;
 
 class PowerSet
