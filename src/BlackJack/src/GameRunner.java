@@ -8,7 +8,7 @@ public class GameRunner {
 		Deck theDeck = new Deck(1, true);
 		
 		// init the player objects
-		Player me = new Player("Gagan");
+		Player me = new Player("Prashant");
 		Player dealer = new Player("Dealer");
 		
 		me.addCard(theDeck.dealNextCard());
@@ -71,11 +71,13 @@ public class GameRunner {
 			int mySum = me.getHandSum();
 			int dealerSum = dealer.getHandSum();
 			
-			if(mySum > dealerSum && mySum <= 21 || dealerSum > 21) {
-				System.out.println("You win!");
+			if(mySum >= dealerSum && mySum <= 21 || dealerSum > 21) {
+				System.out.println("\nYou win!");
 			} else {
-				System.out.println("Dealer wins!");
+				System.out.println("\nDealer wins!");
 			}
+			System.out.printf("My score: %d\n", mySum);
+			System.out.printf("Dealer's score: %d", dealerSum);
 		} // end of  main 
 			
 	
