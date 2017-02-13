@@ -18,10 +18,11 @@ public class LongestPalindromeSubstring {
 
 		// case for strings of length 2
 		for (int i = 0; i < len - 1; i++) {
-			if (s.charAt(i) == s.charAt(i + 1))
+			if (s.charAt(i) == s.charAt(i + 1)) {
 				dp[i][i + 1] = true;
-			maxLen = 2;
-			index = i;
+			    maxLen = 2;
+			    index = i;
+			}    
 		}
 
 		// cases for strings of length starting 3 till complete length of the string
