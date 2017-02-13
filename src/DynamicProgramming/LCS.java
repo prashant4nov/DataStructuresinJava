@@ -1,5 +1,7 @@
 package DynamicProgramming;
 
+// A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous
+
 /**
  * Created by Prashant on 6/25/16.
  * http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
