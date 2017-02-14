@@ -1,5 +1,5 @@
 package Mathematical;
-
+// todo do using recurssion
 /**
  *
  * Created by jp on 5/27/16.
