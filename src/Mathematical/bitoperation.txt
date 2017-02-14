@@ -1,0 +1,6 @@
+bit operation questions:
+1. 1's compliment: flip all bits
+2. 2's compliment: 1 + 1's compliment
+3. turn off right most set bit: n & (n-1)
+4. get right most set bit: n & ~(n-1)
+5. find 2 odd occuring numbers: xor = xor & ~(xor-1) 
