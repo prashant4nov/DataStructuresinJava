@@ -13,7 +13,7 @@ package DynamicProgramming;
  * http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
  * O(mn) complexity
  */
-public class LCS {
+public class LongestCommonSubsequence {
     public int lcs(char[] a, char[] b) {
         int[][] tmp = new int[a.length+1][b.length+1];
         int max = 0;
@@ -57,7 +57,7 @@ public class LCS {
     public static void main(String[] args) {
         String str1 = "ABCDGHLQR";
         String str2 = "AEDPHR";
-        LCS lcs = new LCS();
+        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
         System.out.println(lcs.lcs(str1.toCharArray(), str2.toCharArray())+" ");
     }
 }
