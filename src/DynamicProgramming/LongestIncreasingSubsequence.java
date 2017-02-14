@@ -33,4 +33,3 @@ class LongestIncreasingSubsequence
 			System.out.println("Length of lis is " + lis( arr, n ) + "\n" );
 	}
 }
-/*This code is contributed by Rajat Mishra*/
