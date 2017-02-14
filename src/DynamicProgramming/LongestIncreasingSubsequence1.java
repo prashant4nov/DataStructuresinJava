@@ -5,7 +5,7 @@ package DynamicProgramming;
  * http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
  * TODO: nlogn solution
  */
-public class LIS {
+public class LongestIncreasingSubsequence1 {
     public int lis(int[] a) {
         int[] t = new int[a.length];
         for(int i=0;i<t.length;i++) {
@@ -29,7 +29,7 @@ public class LIS {
         return t[maxIndex];
     }
     public static void main(String[] args) {
-        LIS lis = new LIS();
+        LongestIncreasingSubsequence1 lis = new LongestIncreasingSubsequence1();
         int[] a = { 10, 22, 9, 33, 21, 50, 41, 60, 80 };
         System.out.println(lis.lis(a)+" ");
 
