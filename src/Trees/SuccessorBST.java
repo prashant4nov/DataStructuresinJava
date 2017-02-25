@@ -14,3 +14,6 @@ Node inOrderSuccessor(Node root, Node n) {
         return p;
     }
  
+http://algorithms.tutorialhorizon.com/inorder-successor-in-binary-search-tree-without-using-parent-link/
+
+http://algorithms.tutorialhorizon.com/inorder-successor-in-binary-tree/
