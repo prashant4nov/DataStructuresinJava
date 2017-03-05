@@ -1,0 +1,17 @@
+http://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity
+
+
+Here a more mathematical way of seeing it, though not really complicated. IMO much clearer as informal ones:
+
+The question is, how many times can you divide N by 2 until you have 1? This is essentially saying, do a binary search (half the elements) until you found it. In a formula this would be this:
+
+1 = N / 2x
+multiply by 2x:
+
+2x = N
+now do the log2:
+
+log2(2x)    = log2 N
+x * log2(2) = log2 N
+x * 1         = log2 N
+this means you can divide log N times until you have everything divided. Which means you have to divide log N ("do the binary search step") until you found your element.
