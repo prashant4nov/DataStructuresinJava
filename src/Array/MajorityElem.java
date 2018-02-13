@@ -2,6 +2,7 @@ package Array;
 
 /**
  * Created by Prashant on 5/30/16.
+ * moore voting algo
  */
 public class MajorityElem {
     static int findCand(int[] a) {
