@@ -34,7 +34,7 @@ public class MergeKSortedArray {
         int total = 0;
         for(int i=0;i<arr.length;i++) {
             q.add(new ArrayContainer(arr[i], 0));
-            total+=arr.length;
+            total+=arr[i].length;
         }
 
         int[] res = new int[total];
