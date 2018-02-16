@@ -2,6 +2,7 @@ package Array;
 import java.util.Stack;
 
 /**
+ * use flag, stack queue, continue, tmp variable, use for loop first thing 
  * Created by Prashant on 6/12/16.
  * http://www.geeksforgeeks.org/next-greater-element/
  */
