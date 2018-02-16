@@ -6,6 +6,31 @@ import java.util.Stack;
  * http://www.geeksforgeeks.org/next-greater-element/
  */
 public class NGE {
+    
+    static void printNGE(int a[], int n)
+	{
+	    Stack<Integer> s = new Stack<Integer>();
+	    System.out.println("for: " + a[n-1] + ": " + -1);
+	    s.push(a[n-1]);
+	    
+	    for(int i = n-2; i >= 0; ) {
+	    	    if(!s.isEmpty()) {
+		    	    System.out.println("stack peek: " + s.peek());
+
+		    	     if(s.peek() > a[i]) {
+		    	    	   System.out.println("for: " + a[i] + ": " + s.peek());
+		    	    	   s.push(a[i--]);
+		    	     } else {
+		    	    	    s.pop();
+		    	    	    continue;
+		    	     }
+	    	    } else {
+	    	    	    System.out.println("for: " + a[i] + ": " + -1);
+	    	    	    s.push(a[i--]);
+	    	    }
+	    }
+	}
+    
     public static void nge(int[] a) {
         Stack<Integer> s = new Stack<Integer>();
         int i = a.length-1;
