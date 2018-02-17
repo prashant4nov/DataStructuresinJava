@@ -4,6 +4,7 @@ package Array;
  * Created by Prashant on 6/12/16.
  * Maximum and minimum of an array using minimum number of comparisons
  * total number of comparisons is 3/2 n - 2
+ * https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/
  */
 
 public class TournamentMethod {
