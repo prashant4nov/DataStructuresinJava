@@ -9,7 +9,7 @@
  *   [0] --> true
  *   [1, -1] --> true
  *
- * @author Francois Rousseau
+ * reference: https://github.com/frncsrss/interviews/blob/master/src/core/interviews/arrays/CompleteCycleInCircularArray.java
  */
  import java.util.*;
 public class CompleteCycleInCircularArray {
@@ -19,11 +19,12 @@ public class CompleteCycleInCircularArray {
    * Space complexity: O(1)
    */
   public static boolean f(int[] arr) {
-      int index = 0;
+      int index = 0;  // starting index, the value does not matter if there is indeed a complete cycle
       int n = arr.length;
       for(int i = 0; i < n; i++) {
-          index = ((index + arr[index]) % n + n) % n;
-          if(index == 0 && i < n-1) return false;
+       // in Java, -b < a % b < b but 0 < (a % b + b) % b < b
+          index = ((index + arr[index]) % n + n) % n; 
+          if(index == 0 && i < n-1) return false;   // subcyle
       }
       return index == 0;
   }
