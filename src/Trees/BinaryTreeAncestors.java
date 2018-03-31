@@ -38,7 +38,7 @@ class BinaryTreeAncestors
 	public static void main(String args[]) 
 	{
 		
-    tree = new BinaryTreeAncestors();
+              BinaryTreeAncestors tree = new BinaryTreeAncestors();
 		
 		/* Construct the following binary tree
 				1
