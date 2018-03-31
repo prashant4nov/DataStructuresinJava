@@ -1,10 +1,12 @@
 package Trees;
 
 /**
+ * time complexity is O(n)
  * Created by Prashant on 5/30/16.
  * http://www.geeksforgeeks.org/diameter-of-a-binary-tree/
  * The diameter of a tree (sometimes called the width) is the number of nodes 
  * on the longest path between two leaves in the tree.
+ * https://www.geeksforgeeks.org/diameter-of-a-binary-tree/ ::: O(n) complexity
  */
 public class DiameterTree {
     static int diameter(Node root) {
