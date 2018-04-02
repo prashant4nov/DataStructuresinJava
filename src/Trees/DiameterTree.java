@@ -8,7 +8,28 @@ package Trees;
  * on the longest path between two leaves in the tree.
  * https://www.geeksforgeeks.org/diameter-of-a-binary-tree/ ::: O(n) complexity
  */
+class Height {
+  int h;
+}
 public class DiameterTree {
+    static int diameterOn(Node root, Height height) {
+       if(root == null) {
+           height.h = 0;
+           return 0;
+       }
+       
+       Height lh = new Height(), rh = new Height();
+       
+       lh++; rh++;
+       
+       int leftDiameter = diameterOn(root.left, lh);
+       int rightDiameter = diameterOn(root.right, rh);
+        
+       height.h = Math.max(lh, rh) + 1;
+        
+       return Math.max(Math.max(leftDiameter, rightDiameter), lh + rh + 1);
+    }
+        
     static int diameter(Node root) {
         if(root==null) return 0;
         int leftDiameter = diameter(root.left);
