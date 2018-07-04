@@ -3,6 +3,10 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.*;
 
+/**
+ * https://www.youtube.com/watch?v=ddTC4Zovtbc
+ *
+ */
 public class Toposort {
 
     private static void toposortUtil(List<Integer>[] adj, int v, boolean[] visited, Stack<Integer> orderStack) {
