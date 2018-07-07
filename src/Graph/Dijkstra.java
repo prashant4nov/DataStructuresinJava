@@ -1,8 +1,10 @@
 import java.util.*;
 
  // https://www.geeksforgeeks.org/implement-priorityqueue-comparator-java/
-// https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/
- class Vertex {
+ // https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/
+ // Dijkstra's algorithm finds the minimum cost of reaching all vertices from a single source in a graph having positive weight on edges. 
+ 
+class Vertex {
     int vertex;
     // cost of the vertex from the source vertex.
     int cost;
@@ -23,12 +25,14 @@ import java.util.*;
         // return v.cost - u.cost;
     }
 }
+
 public class Dijkstra {
 
     private static int distance(ArrayList<Integer>[] adj, ArrayList<Integer>[] cost, int s, int t) {
+        // distance of all vertices from the source in the graph.
         int dist[] = new int[adj.length];
 
-        // initialize vertices cost to infinity.
+        // initialize vertices cost from source to infinity.
         for(int i = 0; i < adj.length; i++) {
             dist[i] = Integer.MAX_VALUE;
         }
@@ -50,7 +54,7 @@ public class Dijkstra {
 
                 if(dist[v] > dist[u] + costUV) {
                     dist[v] = dist[u] + costUV;
-                    // update cost value in priority queue.
+                    // add vertex and its cost value from source in priority queue.
                     Vertex currVertex = new Vertex(v, dist[v]);
                     queue.add(currVertex);
                 }
