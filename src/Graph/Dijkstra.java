@@ -1,5 +1,7 @@
 import java.util.*;
 
+ // https://www.geeksforgeeks.org/implement-priorityqueue-comparator-java/
+// https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/
  class Vertex {
     int vertex;
     // cost of the vertex from the source vertex.
