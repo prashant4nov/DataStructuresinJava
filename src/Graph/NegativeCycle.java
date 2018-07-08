@@ -1,6 +1,12 @@
 import java.util.*;
 
+/**
+ * My solution fails at test case 5 and I'm unable to decipher why it does so.
 
+ I have used belmanFord's algorithm to find shortest paths and then performed BFS to check for nodes in the infinite cycle reachable from a node relaxed in the nth iteration of the belmanford algorithm. Can someone give me some hints as to where I may be going wrong?
+
+ OK. I got the problem. If anyone is struggling with this don't forget to check nodes that are unreachable from starting node but have a negative weight edge between them. The belmanford algorithm will relax that edge which will lead to an error.
+ */
 public class NegativeCycle {
     static void relax(List<Integer> adj[], List<Integer> cost[], int[] dist, int[] prev) {
 
