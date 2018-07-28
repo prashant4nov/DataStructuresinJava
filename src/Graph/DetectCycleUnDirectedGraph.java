@@ -45,7 +45,7 @@ class Graph
 	    } else {
 		    parent[y] = rank;
 		    parent[x] = y;
-		}       
+	    }       
 	}
 
 
@@ -75,8 +75,10 @@ class Graph
 		}
 		return 0;
 	}
+}
 
-	// Driver Method
+public class DetectCycleUnDirectedGraph {
+    	// Driver Method
 	public static void main (String[] args)
 	{
 		/* Let us create following graph
