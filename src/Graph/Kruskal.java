@@ -74,10 +74,8 @@ class Graph
 		Arrays.sort(edge);
 
 		// Allocate memory for creating V ssubsets
-
-        int parent[] = new int[V];
-        for (i=0; i<V; ++i)
-			parent[i]=-1;
+                int parent[] = new int[V];
+                for (i=0; i<V; ++i) parent[i]=-1;
 
 		i = 0; // Index used to pick next edge
 
