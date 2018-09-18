@@ -6,130 +6,96 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class Tarjan {
-    static Scanner scanner;
-    private int n;
-    private List<List<Integer>> graph;
-
-    private boolean solved;
-    private int sccCount, id;
-    private boolean[] onStack;
-    private static int[] ids, low;
-    private Deque<Integer> stack;
-
+    static Scanner input;
+    private static ArrayList<Integer>[] adj;
+    private static int count, id;
+    private static boolean[] onStack;
+    private static int[] visited, lowLink;
+    private static Stack<Integer> stack;
     private static final int UNVISITED = -1;
 
-    public Tarjan(List<List<Integer>> graph) {
-        if (graph == null) throw new IllegalArgumentException("Graph cannot be null.");
-        n = graph.size();
-        this.graph = graph;
-    }
 
-    public int sccCount() {
-        if (!solved) solve();
-        return sccCount;
-    }
+    public static void tarjan() {
+        id = 0;
+        count = 0;
+        visited = new int[adj.length];
+        lowLink = new int[adj.length];
+        onStack = new boolean[adj.length];
+        stack = new Stack<Integer>();
 
+        for(int i = 0; i < visited.length; i++) {
+            visited[i] = UNVISITED;
+        }
 
-    public int[] getSccs() {
-        if (!solved) solve();
-        return low;
-    }
-
-    public void solve() {
-        if (solved) return;
-
-        ids = new int[n];
-        low = new int[n];
-        onStack = new boolean[n];
-        stack = new ArrayDeque<>();
-        Arrays.fill(ids, UNVISITED);
-
-        for(int i = 0; i < n; i++)
-            if (ids[i] == UNVISITED)
+        for(int i = 0; i < adj.length; i++)
+            if (visited[i] == UNVISITED)
                 dfs(i);
-
-        solved = true;
     }
 
-    private void dfs(int at) {
+    private static void dfs(int s) {
 
-        stack.push(at);
-        onStack[at] = true;
-        ids[at] = low[at] = id++;
+        stack.push(s);
+        onStack[s] = true;
+        visited[s] = lowLink[s] = id++;
 
-        for(int to : graph.get(at)) {
-            if (ids[to] == UNVISITED) dfs(to);
-            if (onStack[to]) low[at] = min(low[at], low[to]);
-        }
-
-        if (ids[at] == low[at]) {
-            for(int node = stack.pop();;node = stack.pop()) {
-                onStack[node] = false;
-                low[node] = ids[at];
-                if (node == at) break;
+        for(int i = 0; i < adj[s].size(); i++) {
+            int t = adj[s].get(i);
+            if (visited[t] == UNVISITED) {
+                dfs(t);
             }
-            sccCount++;
+            if (onStack[t] == true) {
+                lowLink[s] = min(lowLink[s], lowLink[t]);
+            }
+        }
+
+        if (visited[s] == lowLink[s]) {
+            while(!stack.isEmpty()) {
+                int v = stack.pop();
+                onStack[v] = false;
+                lowLink[v] = visited[s];
+                if (v == s) break;
+            }
+            count++;
         }
 
     }
 
-    public static List<List<Integer>> createGraph(int n) {
-        List<List<Integer>> graph = new ArrayList<>(n);
-        for(int i = 0; i < n; i++) graph.add(new ArrayList<>());
-        return graph;
-    }
+    public static void solve() {
+        int n = input.nextInt();
+        int m = input.nextInt();
+        adj = (ArrayList<Integer>[])new ArrayList[n];
 
-    public static void addEdge(List<List<Integer>> graph, int from, int to) {
-        graph.get(from).add(to);
-    }
-
-
-    public static void run() {
-        int n=scanner.nextInt();
-        int m=scanner.nextInt();
-        List<List<Integer>> graph = createGraph(n);
-
-        for(int i=0;i<m;++i) {
-            int a=scanner.nextInt(); --a;
-            int b=scanner.nextInt(); --b;
-            addEdge(graph, a, b);
-        }
-
-
-
-        Tarjan solver = new Tarjan(graph);
-
-        int[] sccs = solver.getSccs();
-        Map<Integer, List<Integer>> multimap = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (!multimap.containsKey(sccs[i]))
-                multimap.put(sccs[i], new ArrayList<>());
-            multimap.get(sccs[i]).add(i);
+            adj[i] = new ArrayList<Integer>();
         }
 
-        int[] comp=new int[n];
-        int ncomp = solver.sccCount();
+        for(int i = 0; i < m; i++) {
+            int s = input.nextInt() - 1;
+            int t = input.nextInt() - 1;
+            adj[s].add(t);
+        }
 
-        if(ncomp==1) {
+        tarjan();
+
+        if(count == 1) {
             System.out.println(0);
             return;
         }
 
 
-        int[] outdeg=new int[ncomp];
-        int[] indeg=new int[ncomp];
-        for(int at=0;at<n;++at) {
-            List<Integer> cure=graph.get(at);
-            for(int i=0;i<cure.size();++i) {
-                int to=cure.get(i);
-                if(ids[at]==ids[to]) continue;
-                outdeg[ids[at]]++;
-                indeg[ids[to]]++;
+        int[] outdeg=new int[count];
+        int[] indeg=new int[count];
+        for(int s = 0; s < n; s++) {
+            for(int i = 0; i < adj[s].size(); i++) {
+                int t = adj[s].get(i);
+                if(visited[s]==visited[t]) continue;
+                outdeg[visited[s]]++;
+                indeg[visited[t]]++;
             }
         }
 
         int nhead=0,ntail=0;
-        for(int i=0;i<ncomp;++i) {
+        for(int i = 0; i < count; i++) {
             if(outdeg[i]==0) ++ntail;
             if(indeg[i]==0) ++nhead;
         }
@@ -139,28 +105,10 @@ public class Tarjan {
 
     public static void main(String[] arg) {
 
-        scanner = new Scanner(System.in);
-        int n=scanner.nextInt();
-        for(int i=0;i<n;++i) run();
+        input = new Scanner(System.in);
+        int x = input.nextInt();
+        for(int i = 0; i < x; i++) {
+            solve();
+        }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
