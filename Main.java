@@ -2,7 +2,7 @@ import java.util.*;
 import static java.lang.Math.min;
 import static java.lang.Math.max;
 import static java.lang.Math.toIntExact;
-
+// https://github.com/prashant4nov/algorithms-playground/blob/master/kattis/ProvingEquivalences.py
 public class Main {
     private static Scanner input;
     private  List<Integer>[] adj;
