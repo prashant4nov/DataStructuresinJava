@@ -11,7 +11,7 @@ class Graph
 {
 	// A Recursive DFS based function used by SCC()
 	void SCCUtil(int u, int disc[], int low[],
-				stack<int> *st, bool stackMember[]);
+				stack<int> *st, bool stackMember[], int tm);
 public:
 	Graph(int V); // Constructor
 	void addEdge(int v, int w); // function to add an edge to graph
@@ -45,14 +45,13 @@ void Graph::addEdge(int v, int w)
 // stackMember[] --> bit/index array for faster check whether
 //				 a node is in stack
 void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
-					bool stackMember[])
+					bool stackMember[], int tm)
 {
 	// A static variable is used for simplicity, we can avoid use
 	// of static variable by passing a pointer.
-	static int time = 0;
 
 	// Initialize discovery time and low value
-	disc[u] = low[u] = ++time;
+	disc[u] = low[u] = ++tm;
 	st->push(u);
 	stackMember[u] = true;
 
@@ -65,7 +64,7 @@ void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
 		// If v is not visited yet, then recur for it
 		if (disc[v] == -1)
 		{
-			SCCUtil(v, disc, low, st, stackMember);
+			SCCUtil(v, disc, low, st, stackMember, tm);
 
 			// Check if the subtree rooted with 'v' has a
 			// connection to one of the ancestors of 'u'
@@ -119,7 +118,7 @@ int* Graph::SCC()
 	// connected components in DFS tree with vertex 'i'
 	for (int i = 0; i < V; i++)
 		if (disc[i] == NIL)
-			SCCUtil(i, disc, low, st, stackMember);
+			SCCUtil(i, disc, low, st, stackMember, 0);
 	
 	return disc;
 }
