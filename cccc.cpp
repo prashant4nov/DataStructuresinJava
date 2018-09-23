@@ -39,7 +39,7 @@ void SCCUtil(int u, int tm)
 	// of static variable by passing a pointer.
 
 	// Initialize discovery time and low value
-	disc[u] = low[u] = tm++;
+	disc[u] = low[u] = ++tm;
 	st.push(u);
 	stackMember[u] = true;
 
@@ -118,12 +118,9 @@ int main()
             g[i].clear();
 	    for(int i = 0; i < m; i++) {
 	        scanf("%d %d", &x, &y);
-	        g[--x].push_back(--y);
+	        g[x].push_back(y);
 	    }
 	    
-	    for(int i = 0; i < n; i++) {
-	        cout<<"disc["<<i<<"]"<<disc[i]<<"\n";
-	    }
 	    
 	    SCC(n);
 	    
@@ -150,7 +147,7 @@ int main()
 	        }
 	    }
 	    
-	    cout<< "scc" << sccCount << "\n";
+	    //cout<< "scc" << sccCount << "\n";
 	    if(sccCount == 1) {
 	        cout << 0 << "\n";
 	    } else {
