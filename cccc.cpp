@@ -3,15 +3,28 @@
 #include<iostream>
 #include <list>
 #include <stack>
+#include <stdio.h>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <string.h>
+#include <stack> 
+#include <list>
+
 #define NIL -1
 using namespace std;
+#define MAXN 20005
+
+	int disc[MAXN];
+	int low[MAXN];
+	bool stackMember[MAXN];
+	stack<int> st;
 
 // A class that represents an directed graph
 class Graph
 {
 	// A Recursive DFS based function used by SCC()
-	void SCCUtil(int u, int disc[], int low[],
-				stack<int> *st, bool stackMember[], int tm);
+	void SCCUtil(int u, int tm);
 public:
 	Graph(int V); // Constructor
 	void addEdge(int v, int w); // function to add an edge to graph
@@ -44,15 +57,14 @@ void Graph::addEdge(int v, int w)
 //		 of SCC)
 // stackMember[] --> bit/index array for faster check whether
 //				 a node is in stack
-void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
-					bool stackMember[], int tm)
+void Graph::SCCUtil(int u, int tm)
 {
 	// A static variable is used for simplicity, we can avoid use
 	// of static variable by passing a pointer.
 
 	// Initialize discovery time and low value
 	disc[u] = low[u] = ++tm;
-	st->push(u);
+	st.push(u);
 	stackMember[u] = true;
 
 	// Go through all vertices adjacent to this
@@ -64,7 +76,7 @@ void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
 		// If v is not visited yet, then recur for it
 		if (disc[v] == -1)
 		{
-			SCCUtil(v, disc, low, st, stackMember, tm);
+			SCCUtil(v, tm);
 
 			// Check if the subtree rooted with 'v' has a
 			// connection to one of the ancestors of 'u'
@@ -83,17 +95,17 @@ void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
 	int w = 0; // To store stack extracted vertices
 	if (low[u] == disc[u])
 	{
-		while (st->top() != u)
+		while (st.top() != u)
 		{
-			w = (int) st->top();
+			w = (int) st.top();
 			//cout << w << " ";
 			stackMember[w] = false;
-			st->pop();
+			st.pop();
 		}
-		w = (int) st->top();
+		w = (int) st.top();
 		//cout << w << "n";
 		stackMember[w] = false;
-		st->pop();
+		st.pop();
 		sccCount++;
 	}
 }
@@ -101,24 +113,18 @@ void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st,
 // The function to do DFS traversal. It uses SCCUtil()
 int* Graph::SCC()
 {
-	int *disc = new int[V];
-	int *low = new int[V];
-	bool *stackMember = new bool[V];
-	stack<int> *st = new stack<int>();
+
 
 	// Initialize disc and low, and stackMember arrays
-	for (int i = 0; i < V; i++)
-	{
-		disc[i] = NIL;
-		low[i] = NIL;
-		stackMember[i] = false;
-	}
+	memset(disc, NIL, sizeof(disc));
+	memset(low, NIL, sizeof(low));
+	memset(stackMember, false, sizeof(stackMember));
 
 	// Call the recursive helper function to find strongly
 	// connected components in DFS tree with vertex 'i'
 	for (int i = 0; i < V; i++)
 		if (disc[i] == NIL)
-			SCCUtil(i, disc, low, st, stackMember, 0);
+			SCCUtil(i, 0);
 	
 	return disc;
 }
@@ -174,9 +180,9 @@ int main()
 	        }
 	    }
 	    
-	   delete(visited);
-	   delete(in);
-	   delete(out);
+	   //delete(visited);
+	   //delete(in);
+	   //delete(out);
 	   //delete(g);
 	}
 	return 0;
