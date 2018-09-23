@@ -14,37 +14,13 @@
 #define NIL -1
 using namespace std;
 #define MAXN 20005
+vector<int> g[MAXN];
 
 	int disc[MAXN];
 	int low[MAXN];
 	bool stackMember[MAXN];
 	stack<int> st;
-
-// A class that represents an directed graph
-class Graph
-{
-	// A Recursive DFS based function used by SCC()
-	void SCCUtil(int u, int tm);
-public:
-	Graph(int V); // Constructor
-	void addEdge(int v, int w); // function to add an edge to graph
-	int* SCC(); // prints strongly connected components
-	list<int> *adj; // A dynamic array of adjacency lists
-	int sccCount;
-	int V; // No. of vertices
-
-};
-
-Graph::Graph(int V)
-{
-	this->V = V;
-	adj = new list<int>[V];
-}
-
-void Graph::addEdge(int v, int w)
-{
-	adj[v].push_back(w);
-}
+	int sccCount = 0;
 
 // A recursive function that finds and prints strongly connected
 // components using DFS traversal
@@ -57,21 +33,21 @@ void Graph::addEdge(int v, int w)
 //		 of SCC)
 // stackMember[] --> bit/index array for faster check whether
 //				 a node is in stack
-void Graph::SCCUtil(int u, int tm)
+void SCCUtil(int u, int tm)
 {
 	// A static variable is used for simplicity, we can avoid use
 	// of static variable by passing a pointer.
 
 	// Initialize discovery time and low value
-	disc[u] = low[u] = ++tm;
+	disc[u] = low[u] = tm++;
 	st.push(u);
 	stackMember[u] = true;
 
 	// Go through all vertices adjacent to this
-	list<int>::iterator i;
-	for (i = adj[u].begin(); i != adj[u].end(); ++i)
+	
+	for (int i = 0; i < g[u].size(); ++i)
 	{
-		int v = *i; // v is current adjacent of 'u'
+		int v = g[u][i]; // v is current adjacent of 'u'
 
 		// If v is not visited yet, then recur for it
 		if (disc[v] == -1)
@@ -111,7 +87,7 @@ void Graph::SCCUtil(int u, int tm)
 }
 
 // The function to do DFS traversal. It uses SCCUtil()
-int* Graph::SCC()
+void SCC(int n)
 {
 
 
@@ -122,11 +98,10 @@ int* Graph::SCC()
 
 	// Call the recursive helper function to find strongly
 	// connected components in DFS tree with vertex 'i'
-	for (int i = 0; i < V; i++)
+	for (int i = 0; i < n; i++)
 		if (disc[i] == NIL)
 			SCCUtil(i, 0);
 	
-	return disc;
 }
 
 // Driver program to test above function
@@ -137,31 +112,36 @@ int main()
 	
 	
 	while(test--) {
+	    sccCount = 0;
 	    scanf("%d %d", &n, &m);
-	    Graph *g = new Graph(n);
+	   for(int i = 0; i < n; i++)
+            g[i].clear();
 	    for(int i = 0; i < m; i++) {
 	        scanf("%d %d", &x, &y);
-	        g->addEdge(--x, --y);
+	        g[--x].push_back(--y);
 	    }
 	    
-	    int *visited = g->SCC();
+	    for(int i = 0; i < n; i++) {
+	        cout<<"disc["<<i<<"]"<<disc[i]<<"\n";
+	    }
 	    
-	    int *out = new int[g->sccCount];
-	    int *in = new int[g->sccCount];
-	    for(int s = 0; s < n; s++) {
-        	list<int>::iterator i;
-	        for (i = g->adj[s].begin(); i != g->adj[s].end(); ++i) {
-		        int t = *i; // v is current adjacent of 'u'
-		        if(visited[s] != visited[t]) {
-		            out[visited[s]]++;
-		            in[visited[t]]++;
+	    SCC(n);
+	    
+	    int out[sccCount];
+	    int in[sccCount];
+	    for(int i = 0; i < n; i++) {
+	        for (int j = 0; j < g[i].size(); j++) {
+		        if(disc[i] != disc[g[i][j]]) {
+		            out[disc[i]]++;
+		            in[disc[g[i][j]]]++;
 		        }
 	        }
 	    }
 	    
+	    
 	    int result1 = 0;
 	    int result2 = 0;
-	    for(int i = 0; i < g->sccCount; i++) {
+	    for(int i = 0; i < sccCount; i++) {
 	        if(out[i] == 0) {
 	            result1++;
 	        }
@@ -170,7 +150,8 @@ int main()
 	        }
 	    }
 	    
-	    if(g->sccCount <= 1) {
+	    cout<< "scc" << sccCount << "\n";
+	    if(sccCount == 1) {
 	        cout << 0 << "\n";
 	    } else {
 	        if(result1 <= result2) {
@@ -180,10 +161,6 @@ int main()
 	        }
 	    }
 	    
-	   //delete(visited);
-	   //delete(in);
-	   //delete(out);
-	   //delete(g);
 	}
 	return 0;
 }
