@@ -67,18 +67,8 @@ public class Tarjan {
         int n = toIntExact(input.nextLong());
         int m = toIntExact(input.nextLong());
 
-        if(n < 1 || n > 20000) {
-            System.out.println(0);
-            return;
-        }
 
-        if(m < 0 || m > 50000) {
-            System.out.println(0);
-            return;
-        }
-
-
-         adj = new ArrayList[toIntExact(n)];
+        adj = new ArrayList[toIntExact(n)];
 
         for (int i = 0; i < n; i++) {
             adj[i] = new ArrayList<Integer>();
@@ -86,39 +76,22 @@ public class Tarjan {
 
         for(int i = 0; i < m; i++) {
             int s1 = toIntExact(input.nextLong());
-            if(s1 < 1) {
-                System.out.println(0);
-                return;
-            }
             int s2 = toIntExact(input.nextLong());
-            if(s2 > n) {
-                System.out.println(0);
-                return;
-            }
-            if(s1 == s2) {
-                System.out.println(0);
-                return;
-            }
-
             adj[--s1].add(--s2);
         }
 
         tarjan();
 
-        if(scc <= 1) {
-            System.out.println(0);
-            return;
-        }
 
 
-        int[] out = new int[scc];
-        int[] in = new int[scc];
-        for(int s = 0; s < n; s++) {
+        boolean[] out = new boolean[scc];
+        boolean[] in = new boolean[scc];
+        for(int s = 0; s < scc; s++) {
             for(int i = 0; i < adj[s].size(); i++) {
                 int t = adj[s].get(i);
                 if(visited[s] != visited[t]) {
-                    out[visited[s]]++;
-                    in[visited[t]]++;
+                    out[visited[s]] = true;
+                    in[visited[t]] = true;
                 }
             }
         }
@@ -126,31 +99,32 @@ public class Tarjan {
         int result1 = 0;
         int result2 = 0;
         for(int i = 0; i < scc; i++) {
-            if(out[i] == 0)  {
+            if(!out[i])  {
                 result1++;
             }
-            if(in[i] == 0) {
+            if(!in[i]) {
                 result2++;
             }
         }
-        System.out.println(max(result1, result2));
+
+        if(scc == 1) {
+            System.out.println(0);
+        } else {
+            System.out.println(max(result1, result2));
+        }
 
     }
 
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws java.lang.Exception{
         try {
             input = new Scanner(System.in);
             int x = toIntExact(input.nextLong());
-            if(x <= 100) {
+
                 for(int i = 0; i < x; i++) {
                     solve();
                 }
-            } else {
-                System.out.println(0);
-            }
-
         } catch (Exception e) {
-            System.out.println(0);
+            System.out.println(e.getMessage());
         }
 
     }
