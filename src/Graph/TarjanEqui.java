@@ -60,7 +60,7 @@ class Tarjan extends Graph{
     private  boolean[] onStack; // boolean array to keep a track of nodes present on the stack.
     private  int[] disc; // int array to keep track of time when nodes/vertices are discovered for the first time.
     private int[]low; // int array to maintain the lowest ancestor reachable from a given node.
-    private int[] components; // int array to maintain the number of nodes present in a strongly connected component.
+    private int[] components; // int array to maintain the nodes present in a strongly connected component.
     private  Stack<Integer> stack; // stack to put nodes discovered during the dfs call.
 
     /**
