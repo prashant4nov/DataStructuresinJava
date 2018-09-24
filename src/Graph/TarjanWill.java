@@ -10,7 +10,7 @@ public class Main {
     private static List<Integer>[] adj;
     private static int scc, time;
     private static boolean[] onStack;
-    private static int[] disc, low, contract;
+    private static int[] disc, low, component;
     private static Stack<Integer> stack;
 
 
@@ -20,14 +20,14 @@ public class Main {
         low = new int[adj.length];
         disc = new int[adj.length];
         onStack = new boolean[adj.length];
-        contract = new int[adj.length];
+        component = new int[adj.length];
         stack = new Stack<Integer>();
 
         for(int i = 0; i < adj.length; i++) {
             disc[i] = -1;
             low[i] = -1;
             onStack[i] = false;
-            contract[i] = -1;
+            component[i] = -1;
         }
 
         for(int i = 0; i < adj.length; i++)
@@ -57,7 +57,7 @@ public class Main {
                 node = stack.pop();
                 onStack[node] = false;
                 low[node] = disc[u];
-                contract[node] = scc;
+                component[node] = scc;
                 if(node == u) break;
             }
             scc++;
@@ -65,7 +65,7 @@ public class Main {
     }
 
     @SuppressWarnings("unchecked")
-    public static void solve() {
+    public static void equivalence() {
         int n = toIntExact(input.nextLong());
         int m = toIntExact(input.nextLong());
 
@@ -89,9 +89,9 @@ public class Main {
         for(int u = 0; u < adj.length; u++) {
             for(int i = 0; i < adj[u].size(); i++) {
                 int v = adj[u].get(i);
-                if(contract[u] != contract[v]) {
-                    out[contract[u]] = true;
-                    in[contract[v]] = true;
+                if(component[u] != component[v]) {
+                    out[component[u]] = true;
+                    in[component[v]] = true;
                 }
             }
         }
@@ -121,7 +121,7 @@ public class Main {
             int x = toIntExact(input.nextLong());
 
             for(int i = 0; i < x; i++) {
-                solve();
+                equivalence();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
