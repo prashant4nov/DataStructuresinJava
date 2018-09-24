@@ -5,6 +5,53 @@ import java.util.Stack;
 import java.lang.Math;
 
 /**
+ * Equivalence class to compute the equivalance.
+ */
+class Equivalence {
+    private int scc;
+    private int[] components;
+    private List<Integer>[] adj;
+
+    public Equivalence(int scc, int[] components, List<Integer>[] adj) {
+        this.scc = scc;
+        this.components = components;
+        this.adj = adj;
+    }
+
+    public int getEquivalence() {
+        boolean[] out = new boolean[scc];
+        boolean[] in = new boolean[scc];
+        for(int u = 0; u < components.length; u++) {
+            for(int i = 0; i < adj[u].size(); i++) {
+                int v = adj[u].get(i);
+                if(components[u] != components[v]) {
+                    out[components[u]] = true;
+                    in[components[v]] = true;
+                }
+            }
+        }
+
+        int result1 = 0;
+        int result2 = 0;
+        for(int i = 0; i < scc; i++) {
+            if(!out[i])  {
+                result1++;
+            }
+            if(!in[i]) {
+                result2++;
+            }
+        }
+
+        if(scc == 1) {
+            return 0;
+        } else {
+            return Math.max(result1, result2);
+        }
+
+    }
+}
+
+/**
  * Tarjan class to implement tarjan's algorithm to find strongly connected components in a graph.
  */
 class Tarjan extends Graph{
@@ -73,43 +120,24 @@ class Tarjan extends Graph{
         }
     }
 
-    public int equivalence() {
-        boolean[] out = new boolean[scc];
-        boolean[] in = new boolean[scc];
-        for(int u = 0; u < adj.length; u++) {
-            for(int i = 0; i < adj[u].size(); i++) {
-                int v = adj[u].get(i);
-                if(components[u] != components[v]) {
-                    out[components[u]] = true;
-                    in[components[v]] = true;
-                }
-            }
-        }
-
-        int result1 = 0;
-        int result2 = 0;
-        for(int i = 0; i < scc; i++) {
-            if(!out[i])  {
-                result1++;
-            }
-            if(!in[i]) {
-                result2++;
-            }
-        }
-
-        if(scc == 1) {
-            return 0;
-        } else {
-            return Math.max(result1, result2);
-        }
-
+    public int getSCC() {
+        return scc;
     }
+
+    public int[] getComponents() {
+        return components;
+    }
+
+    public List<Integer>[] getGraph() {
+        return adj;
+    }
+
 }
 /**
  * Graph class to represent the graph.
  */
 class Graph {
-    public List<Integer>[] adj; // adjacency list to represent the graph.
+    protected List<Integer>[] adj; // adjacency list to represent the graph.
 
     public Graph(int n) {
         adj = new ArrayList[n];
@@ -117,7 +145,6 @@ class Graph {
             adj[i] = new ArrayList<Integer>();
         }
     }
-
 
     public void addEdge(int u, int v) {
         adj[u].add(v);
@@ -145,7 +172,13 @@ public class Main {
 
                 }
 
-                int result = tarjan.equivalence();
+                int scc = tarjan.getSCC();
+                int[] components = tarjan.getComponents();
+                List<Integer>[] adj = tarjan.getGraph();
+
+                Equivalence equivalence = new Equivalence(scc, components, adj);
+
+                int result = equivalence.getEquivalence();
                 System.out.println(result);
             }
         } catch (Exception e) {
