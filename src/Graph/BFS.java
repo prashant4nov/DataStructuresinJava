@@ -34,6 +34,7 @@ public class BFS {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int m = scanner.nextInt();
+        @SuppressWarnings("unchecked")
         ArrayList<Integer>[] adj = (ArrayList<Integer>[])new ArrayList[n];
         for (int i = 0; i < n; i++) {
             adj[i] = new ArrayList<Integer>();
